@@ -1,0 +1,187 @@
+.inputContainer {
+  /* --primary-color: #4f46e5; */
+  /* --error-color: #dc2626; */
+  /* --text-color: #1f2937; */
+  /* --border-color: #d1d5db; */
+  --background-color: #ffffff;
+  --label-color: #6b7280;
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  --transition: all 0.2s ease-in-out;
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+/* @import url('../../assets/css/styles.css'); */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--light-bg-2);
+  border: 1px solid var(--light-bg-2);
+  border-radius: 0.375rem;
+  transition: var(--transition);
+  appearance: none;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring);
+}
+
+/* Label styles */
+.label {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  padding: 0 0.25rem;
+  color: var(--label-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  pointer-events: none;
+  transform-origin: left center;
+  transition: var(--transition);
+  background-color: var(--light-bg-2);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.input:focus ~ .label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-1.75rem) scale(0.875);
+  color: var(--primary-color);
+  background-color: transparent;
+  font-weight: 500;
+}
+
+/* Icon styles */
+.icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--label-color);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.input:focus ~ .icon {
+  color: var(--primary-color);
+}
+
+/* Error state */
+.input.error {
+  border-color: var(--error-color);
+}
+
+.input.error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.input.error ~ .label {
+  color: var(--error-color);
+}
+
+.errorMessage {
+  margin-top: 0.5rem;
+  color: var(--error-color);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* Required indicator */
+.required {
+  color: var(--error-color);
+  margin-left: 0.25rem;
+}
+
+/* Variants */
+.inputContainer[data-variant="filled"] .input {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.inputContainer[data-variant="filled"] .input:focus {
+  background-color: #ffffff;
+}
+
+.inputContainer[data-variant="standard"] .input {
+  border: none;
+  border-bottom: 1px solid var(--light-bg-2);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: transparent;
+}
+
+.inputContainer[data-variant="standard"] .label {
+  left: 0;
+  background-color: transparent;
+}
+
+/* Full width */
+.fullWidth {
+  width: 100%;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .inputContainer {
+    --text-color: #f3f4f6;
+    --light-bg-2: #4b5563;
+    --background-color: #1f2937;
+    --label-color: #9ca3af;
+  }
+
+  .inputContainer[data-variant="filled"] .input {
+    background-color: #374151;
+    border-color: #4b5563;
+  }
+
+  .inputContainer[data-variant="filled"] .input:focus {
+    background-color: #1f2937;
+  }
+}
+
+/* Accessibility focus styles */
+.input:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+}
+
+/* Error state for standard variant */
+.inputContainer[data-variant="standard"] .input.error {
+  border-bottom-color: var(--error-color);
+}
+
+/* Icon positioning when present */
+.input:not(:placeholder-shown) ~ .icon,
+.input:focus ~ .icon {
+  color: var(--primary-color);
+}
+
+/* Adjust padding when icon is present */
+.inputContainer:has(.icon) .input {
+  padding-left: 2.5rem;
+}
+
+/* Adjust label position when icon is present */
+.inputContainer:has(.icon) .label {
+  left: 2.2rem;
+  bottom: 2.2rem;
+}

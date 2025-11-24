@@ -1,0 +1,79 @@
+@keyframes scale_down {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.scale_down {
+    animation: scale_down 1s ease-in-out;
+}
+
+.scale_up {
+    animation: scale_down .2s ease-in reverse;
+}
+
+@keyframes slide_up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide_up {
+    animation: slide_up 1s ease-in-out;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes shadowbreath {
+    0% {
+        box-shadow: 0 0 0 0 var(--primary-orange);
+    }
+
+    100% {
+        color: var(--primary-blue);
+        box-shadow: 0 0 0 5px var(--primary-blue);
+    }
+}
+
+@keyframes huerotate {
+    0% {
+
+        filter: hue-rotate(360deg);
+    }
+
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}
+
+@keyframes left-to-right {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Development Section */

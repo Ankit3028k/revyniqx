@@ -1,0 +1,32 @@
+.loginbg {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light-bg-2);
+    position: fixed;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.loginbg::before {
+    content: '';
+    position: absolute;
+    top: -5rem;
+    left: -5rem;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    background-color: var(--primary-orange);
+    opacity: 0.5;
+}
+
+.loginbg::after {
+    content: '';
+    position: absolute;
+    bottom: -10rem;
+    right: -10rem;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    background-color: var(--primary-orange);
+    opacity: 0.5;
+}
